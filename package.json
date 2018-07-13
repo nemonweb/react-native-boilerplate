@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "storybook": "storybook start -p 7007",
-    "prestorybook": "rnstl"
+    "prestorybook": "rnstl",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "react": "16.4.1",
@@ -18,10 +19,20 @@
     "@storybook/addons": "^4.0.0-alpha.14",
     "@storybook/react-native": "^4.0.0-alpha.14",
     "babel-core": "^7.0.0-beta.53",
+    "babel-eslint": "^8.2.5",
     "babel-jest": "23.4.0",
     "babel-preset-react-native": "^5",
     "babel-runtime": "^7.0.0-beta.3",
+    "eslint": "^5.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-react-native": "^3.2.1",
+    "husky": "^0.14.3",
     "jest": "23.4.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.7",
     "prop-types": "^15.6.2",
     "react-dom": "16.4.1",
     "react-native-storybook-loader": "^1.8.0",
@@ -32,9 +43,18 @@
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": ["./storybook/stories"],
+      "searchDir": [
+        "./storybook/stories"
+      ],
       "pattern": "**/*.stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier",
+      "git add"
+    ]
   }
 }
