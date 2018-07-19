@@ -5,9 +5,12 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
+    "lint": "tslint 'src/**/*.{ts,tsx}'",
     "storybook": "storybook start -p 7007",
     "prestorybook": "rnstl",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios"
   },
   "dependencies": {
     "react": "16.4.1",
@@ -18,6 +21,10 @@
     "@storybook/addon-links": "^4.0.0-alpha.14",
     "@storybook/addons": "^4.0.0-alpha.14",
     "@storybook/react-native": "^4.0.0-alpha.14",
+    "@types/jest": "^23.3.0",
+    "@types/react": "^16.4.6",
+    "@types/react-native": "^0.56.2",
+    "@types/react-test-renderer": "^16.0.1",
     "babel-core": "^7.0.0-beta.53",
     "babel-eslint": "^8.2.5",
     "babel-jest": "23.4.0",
@@ -36,7 +43,14 @@
     "prop-types": "^15.6.2",
     "react-dom": "16.4.1",
     "react-native-storybook-loader": "^1.8.0",
-    "react-test-renderer": "16.4.1"
+    "react-native-typescript-transformer": "^1.2.10",
+    "react-test-renderer": "16.4.1",
+    "ts-jest": "^23.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.13.0",
+    "tslint-config-standard": "^7.1.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.9.2"
   },
   "jest": {
     "preset": "react-native"
