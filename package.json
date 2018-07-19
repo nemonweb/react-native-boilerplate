@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
     "storybook": "storybook start -p 7007",
     "prestorybook": "rnstl",
@@ -26,16 +26,9 @@
     "@types/react-native": "^0.56.2",
     "@types/react-test-renderer": "^16.0.1",
     "babel-core": "^7.0.0-beta.53",
-    "babel-eslint": "^8.2.5",
-    "babel-jest": "23.4.0",
+    "babel-jest": "^23.4.0",
     "babel-preset-react-native": "^5",
     "babel-runtime": "^7.0.0-beta.3",
-    "eslint": "^5.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-react-native": "^3.2.1",
     "husky": "^0.14.3",
     "jest": "23.4.0",
     "lint-staged": "^7.2.0",
@@ -44,8 +37,8 @@
     "react-dom": "16.4.1",
     "react-native-storybook-loader": "^1.8.0",
     "react-native-typescript-transformer": "^1.2.10",
-    "react-test-renderer": "16.4.1",
-    "ts-jest": "^23.0.0",
+    "react-test-renderer": "^16.4.1",
+    "ts-jest": "^23.0.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.13.0",
     "tslint-config-standard": "^7.1.0",
@@ -53,7 +46,31 @@
     "typescript": "^2.9.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/src/.*spec)\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    },
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/coverage/",
+      "<rootDir>/ios/",
+      "<rootDir>/android/",
+      "<rootDir>/node_modules/"
+      "<rootDir>/storybook/"
+    ],
+    "cacheDirectory": ".jest/cache"
   },
   "config": {
     "react-native-storybook-loader": {
@@ -66,7 +83,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
+      "tslint --fix",
       "prettier",
       "git add"
     ]
