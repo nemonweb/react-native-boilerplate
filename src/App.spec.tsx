@@ -2,9 +2,9 @@
 
 import { shallow } from 'enzyme'
 import * as React from 'react'
-import App from './App'
+import Hello from './App'
 
 it('renders correctly', () => {
-  const wrapper = shallow(<App />)
+  const wrapper = shallow(<Hello name="World" enthusiasmLevel={1} />)
   expect(wrapper).toMatchSnapshot()
 })
