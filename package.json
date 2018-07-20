@@ -23,49 +23,47 @@
     "@storybook/react-native": "^4.0.0-alpha.14",
     "@types/jest": "^23.3.0",
     "@types/react": "^16.4.6",
-    "@types/react-native": "^0.56.2",
-    "@types/react-test-renderer": "^16.0.1",
+    "@types/react-native": "^0.56.3",
     "babel-core": "^7.0.0-beta.53",
     "babel-jest": "^23.4.0",
     "babel-preset-react-native": "^5",
-    "babel-runtime": "^7.0.0-beta.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
     "husky": "^0.14.3",
     "jest": "23.4.0",
     "lint-staged": "^7.2.0",
     "prettier": "^1.13.7",
-    "prop-types": "^15.6.2",
     "react-dom": "16.4.1",
     "react-native-storybook-loader": "^1.8.0",
     "react-native-typescript-transformer": "^1.2.10",
-    "react-test-renderer": "^16.4.1",
     "ts-jest": "^23.0.1",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.13.0",
-    "tslint-config-standard": "^7.1.0",
     "tslint-react": "^3.6.0",
     "typescript": "^2.9.2"
   },
   "jest": {
     "preset": "react-native",
     "transform": {
-      "^.+\\.jsx?$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "(/src/.*spec)\\.(jsx?|tsx?)$",
+    "testRegex": "(/src/.*\\.(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
-      "js"
+      "js",
+      "jsx",
+      "json",
+      "node"
     ],
     "globals": {
       "ts-jest": {
         "useBabelrc": true
       }
     },
-    "testPathIgnorePatterns": [
-      "\\.snap$",
-      "<rootDir>/node_modules/"
-    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
     "cacheDirectory": ".jest/cache"
   },
   "config": {

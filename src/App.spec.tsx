@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 
-// import React = require('react');
-import { create } from 'react-test-renderer';
+import { shallow } from 'enzyme'
+import * as React from 'react'
 import App from './App'
 
 it('renders correctly', () => {
-  const tree = create(<App />).toJSON()
-  expect(tree).toMatchSnapshot()
+  const wrapper = shallow(<App />)
+  expect(wrapper).toMatchSnapshot()
 })
