@@ -2,6 +2,7 @@
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
 
   "rules": {
-    "ordered-imports": [true]
+    "ordered-imports": [true],
+    "interface-name": [true, "never-prefix"]
   }
 }
